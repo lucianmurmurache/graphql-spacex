@@ -4,6 +4,8 @@
 
 - linting with ESLint and Prettier (4 spaces instead of 2).
 - add missions somewhere inside the modal as it would make more sense for the user to see the data they can search by.
+- add notification on results change would be nice to have
+- add functionality for add to favourite btn on list view
 
 ### Application built with Create React App
 

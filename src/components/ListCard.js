@@ -4,29 +4,30 @@ import { ShieldCheck, ShieldExclamation } from '../icons/index';
 function ListCard({ ship }) {
   const backupImage =
     'https://img2.cgtrader.com/items/2798138/20d8e46570/large/toy-boat-3d-model-obj-fbx-blend.jpg';
+  const { image, name, active, missions } = ship;
   return (
-    <div key={ship.name} className='claymorphism rounded-lg'>
+    <div key={name} className='claymorphism rounded-lg'>
       {ship.image ? (
         <img
-          src={ship.image}
-          alt={ship.name}
-          title={ship.name}
+          src={image}
+          alt={name}
+          title={name}
           className='w-auto rounded-t-lg aspect-[2/2]'
         />
       ) : (
         <img
           src={backupImage}
-          alt={ship.name}
+          alt={name}
           title='Not actual image'
           className='w-auto rounded-t-lg aspect-[2/2]'
         />
       )}
       <div className='px-3 py-5'>
-        <p className='text-2xl truncate' title={ship.name}>
-          {ship.name}
+        <p className='text-2xl truncate' title={name}>
+          {name}
         </p>
-        <p className='my-2' title={`${ship.active ? 'Active' : 'Inactive'}`}>
-          {ship.active ? (
+        <p className='my-2' title={`${active ? 'Active' : 'Inactive'}`}>
+          {active ? (
             <span className='flex'>
               <ShieldCheck />
               &nbsp;Active
@@ -38,7 +39,7 @@ function ListCard({ ship }) {
             </span>
           )}
         </p>
-        <p className='my-2'>Total number of missions: {ship.missions.length}</p>
+        <p className='my-2'>Total number of missions: {missions.length}</p>
         <Modal ship={ship} />
       </div>
     </div>

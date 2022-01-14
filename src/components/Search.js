@@ -1,15 +1,14 @@
 import { useState, useEffect } from 'react';
-import ListCard from './ListCard';
-import SearchInput from './SearchInput';
+import { List, SearchInput } from './index';
 
 function Search({ data }) {
-  const [launches, setLaunches] = useState([]);
+  const [ships, setShips] = useState([]);
   const [noResults, setNoResults] = useState('');
 
   // Initialise data
   useEffect(() => {
     if (data) {
-      setLaunches(data.shipsResult.data);
+      setShips(data.shipsResult.data);
     }
   }, [data]);
 
@@ -28,7 +27,7 @@ function Search({ data }) {
     if (!filteredSearch.length) {
       setNoResults('No results match your search, have another go!🚀');
     }
-    setLaunches(filteredSearch);
+    setShips(filteredSearch);
   };
 
   return (
@@ -44,13 +43,7 @@ function Search({ data }) {
       </header>
 
       <main className='grid grid-cols-2 max-w-6xl mx-auto sm:mx-2 md:mx-3 lg:mx-auto sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 lg:gap-7 pt-24'>
-        {launches.length ? (
-          launches.map((ship) => <ListCard key={ship.name} ship={ship} />)
-        ) : (
-          <div className='w-full'>
-            <h1 className='text-3xl'>{noResults}</h1>
-          </div>
-        )}
+        <List ships={ships} noResults={noResults} />
       </main>
       <footer className='w-full h-20 mt-5 flex flex-row justify-center items-center left-0 right-0 bottom-0'>
         <a
