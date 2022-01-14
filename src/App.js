@@ -1,8 +1,6 @@
 import { GET_LAUNCHES } from './graphql/query';
 import { useQuery } from '@apollo/client';
-import LoadingSpinner from './components/LoadingSpinner';
-import Search from './components/Search';
-import ShowError from './components/ShowError';
+import { ShowError, LoadingSpinner, Search } from './components/index';
 
 function App() {
   const { errors, loading, data } = useQuery(GET_LAUNCHES);

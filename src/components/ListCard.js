@@ -1,40 +1,45 @@
 import Modal from './Modal';
+import { ShieldCheck, ShieldExclamation } from '../icons/index';
 
-function ListCard({
-  mission_name,
-  links,
-  rocket,
-  launch_date_local,
-  launch_site,
-}) {
+function ListCard({ ship }) {
+  const backupImage =
+    'https://img2.cgtrader.com/items/2798138/20d8e46570/large/toy-boat-3d-model-obj-fbx-blend.jpg';
   return (
-    <div key={mission_name} className='claymorphism rounded-lg'>
-      {links.flickr_images.length ? (
+    <div key={ship.name} className='claymorphism rounded-lg'>
+      {ship.image ? (
         <img
-          src={links.flickr_images[0]}
-          alt={rocket.rocket_name}
+          src={ship.image}
+          alt={ship.name}
+          title={ship.name}
           className='w-auto rounded-t-lg aspect-[2/2]'
         />
       ) : (
         <img
-          className='w-auto aspect-[2/2]'
-          src={links.mission_patch}
-          alt={mission_name}
+          src={backupImage}
+          alt={ship.name}
+          title='Not actual image'
+          className='w-auto rounded-t-lg aspect-[2/2]'
         />
       )}
-      <div className='px-3 py-6'>
-        <p className='text-2xl truncate' title={mission_name}>
-          {mission_name}
+      <div className='px-3 py-5'>
+        <p className='text-2xl truncate' title={ship.name}>
+          {ship.name}
         </p>
-        <p className='text-xs'>Launch date: {launch_date_local.slice(0, 10)}</p>
-        <p>Launch site: {launch_site.site_name_long}</p>
-        <p>Rocket name: {rocket.rocket_name}</p>
-        <Modal
-          mission_name={mission_name}
-          rocket={rocket}
-          links={links}
-          launch_date_local={launch_date_local}
-        />
+        <p className='my-2' title={`${ship.active ? 'Active' : 'Inactive'}`}>
+          {ship.active ? (
+            <span className='flex'>
+              <ShieldCheck />
+              &nbsp;Active
+            </span>
+          ) : (
+            <span className='flex'>
+              <ShieldExclamation />
+              &nbsp;Inactive
+            </span>
+          )}
+        </p>
+        <p className='my-2'>Total number of missions: {ship.missions.length}</p>
+        <Modal ship={ship} />
       </div>
     </div>
   );

@@ -1,5 +1,10 @@
 ## Harvey's Spaceships 🚀
 
+### ToDo
+
+- linting with ESLint and Prettier (4 spaces instead of 2).
+- add missions somewhere inside the modal as it would make more sense for the user to see the data they can search by.
+
 ### Application built with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
