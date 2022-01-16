@@ -1,30 +1,25 @@
-import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
+import { ApolloProvider } from '@apollo/client';
+import { client } from '../graphql/client';
 import App from '../App';
 
-jest.mock('../components/ShowError.js', () => () => (
-  <div data-testid='error-comp' />
-));
-jest.mock('../components/LoadingSpinner.js', () => () => (
-  <div data-testid='loading-comp' />
-));
-jest.mock('../components/Search.js', () => () => (
-  <div data-testid='search-comp' />
-));
-
-test('should render search componenet', () => {
-  const { getByTestId } = render(<App />);
-  // eslint-disable-next-line testing-library/prefer-screen-queries
-  expect(getByTestId(/seach-comp/)).toBeInTheDocument();
-});
-
-test('should render loading componenet', () => {
-  const { getByTestId } = render(<App />);
-  // eslint-disable-next-line testing-library/prefer-screen-queries
-  expect(getByTestId(/seach-comp/)).toBeInTheDocument();
-});
-
-test('should render error componenet', () => {
-  const { getByTestId } = render(<App />);
-  // eslint-disable-next-line testing-library/prefer-screen-queries
-  expect(getByTestId(/seach-comp/)).toBeInTheDocument();
+describe('App', () => {
+    test('renders App component', () => {
+        render(
+            <ApolloProvider client={client}>
+                <App />
+            </ApolloProvider>,
+        );
+    });
+    test('renders Loading spinner', () => {
+        render(
+            <ApolloProvider client={client}>
+                <App />
+            </ApolloProvider>,
+        );
+        expect(
+            screen.getByLabelText('Loading spinner animation'),
+        ).toBeInTheDocument();
+    });
 });
