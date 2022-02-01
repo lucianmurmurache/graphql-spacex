@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { List, SearchInput } from './index';
+import { Header, List, Footer } from './index';
 
 function Search({ data }) {
     const [ships, setShips] = useState([]);
@@ -33,19 +33,9 @@ function Search({ data }) {
 
     return (
         <>
-            <header className='w-full fixed shadow-lg p-2 bg-white z-20'>
-                <div className='max-w-6xl mx-auto flex items-center'>
-                    <a
-                        className='text-5xl pb-2'
-                        href='/'
-                        title="Harvey's Spaceships"
-                        aria-label='Reload page or home page'>
-                        {'🚀' || 'HS'}
-                    </a>
-                    <SearchInput applyFilter={applyFilter} />
-                </div>
-            </header>
+            <Header applyFilter={applyFilter} />
             <List ships={ships} noResults={noResults} />
+            <Footer />
         </>
     );
 }
