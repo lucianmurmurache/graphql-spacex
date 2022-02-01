@@ -6,21 +6,25 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Project structure
 
-- src
-  - tests
-    - ToDo
-  - components
-    - ListCard: a reusable card that renders the spaceship data
-    - LoadingSpinner: a loading animation so that the user knows things are happening
-    - Modal: reusable modal triggered by a button, it shows more spaceship data
-    - Search: responsible for fetching the data and filtering the results
-    - SearchInput: a simple and dumb input, nothing special
-    - ShowError: in case things break, it alerts the user that something has gone terribly wrong
-  - graphql
-    - client: the...well...client :)
-    - query: includes all the possible things that can be used from SpaceX's API
-  - hooks
-    - useOnCloseModal: a lonely hook that is responsible for closing a modal when the user clicks outside of the modal or presses _Esc_
+-   src
+    -   tests
+        -   App.test: tests whether the App component & loading animation is rendered.
+        -   Search.test: tests whether the Search component is rendered
+    -   components - index
+        -   List: a list component, lists all cards with two props
+        -   ListCard: a reusable card that renders the spaceship data
+        -   LoadingSpinner: a loading animation so that the user knows things are happening
+        -   Modal: reusable modal triggered by a button, it shows more spaceship data
+        -   Search: responsible for fetching the data and filtering the results
+        -   SearchInput: a simple and dumb input, nothing special
+        -   ShowError: in case things break, it alerts the user that something has gone terribly wrong
+    -   graphql
+        -   client: the...well...client :)
+        -   query: includes all the needed things from SpaceX's API
+    -   hooks
+        -   useOnCloseModal: a lonely hook that is responsible for closing a modal when the user clicks outside of the modal or presses _Esc_
+    -   icons
+        -   a slightly different way of using icons, but hear me out, I use it as a component, just as fast and it's JS, easy to edit or pass props to
 
 ### How to get it working on your local machine
 
