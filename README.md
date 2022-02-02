@@ -7,9 +7,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### Project structure
 
 -   src
-    -   tests
-        -   App.test: tests whether the App component & loading animation is rendered.
-        -   Search.test: tests whether the Search component is rendered
+    -   tests (cypress)
+        -   actions
+        -   cards
+        -   window
     -   components - index
         -   List: a list component, lists all cards with two props
         -   ListCard: a reusable card that renders the spaceship data
