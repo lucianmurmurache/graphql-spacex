@@ -1,6 +1,6 @@
 describe('Application ship cards', () => {
     beforeEach(() => {
-        cy.visit('https://harveys-spaceships.netlify.app/');
+        cy.visit('http://localhost:3000/');
     });
 
     it('finds the first ship by name', () => {

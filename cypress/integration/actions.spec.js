@@ -1,19 +1,6 @@
 describe('Application actions', () => {
     beforeEach(() => {
-        cy.visit('https://harveys-spaceships.netlify.app/');
-    });
-
-    it('type into search input', () => {
-        cy.get('input')
-            .type('Just Read The Instructions')
-            .should('have.value', 'Just Read The Instructions');
-    });
-
-    it('clears search input', () => {
-        cy.get('input')
-            .type('Just Read The Instructions 2')
-            .clear()
-            .should('have.value', '');
+        cy.visit('http://localhost:3000/');
     });
 
     it('adds all ships to list of favourites', () => {
