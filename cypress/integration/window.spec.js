@@ -1,6 +1,6 @@
 context('Window', () => {
     beforeEach(() => {
-        cy.visit('https://harveys-spaceships.netlify.app/');
+        cy.visit('http://localhost:3000/');
     });
 
     it('get the app title', () => {
